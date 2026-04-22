@@ -1,5 +1,12 @@
 FROM php:8.4-cli
 
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    unzip \
+    git \
+    curl \
+    && docker-php-ext-install pdo pdo_pgsql pgsql
+
 # Installer dépendances
 RUN apt-get update && apt-get install -y \
     unzip \
